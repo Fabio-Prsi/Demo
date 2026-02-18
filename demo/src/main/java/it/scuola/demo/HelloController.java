@@ -21,4 +21,13 @@ public class  HelloController {
                 "ok", true
         );
     }
+
+    @GetMapping("/api/chico")
+    public Map<String, Object> chico() {
+        return Map.of(
+                "message","hola chico,te gusta la mañana?",
+                "ok", true
+                
+        );
+    }
 }
