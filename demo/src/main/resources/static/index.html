@@ -64,6 +64,7 @@ async function createMessage() {
         document.getElementById("result").innerText =
             "Errore POST: " + error.message;
     }
+}
 async function deleteMessages() {
     try {
         const response = await fetch("/api/messages", {
