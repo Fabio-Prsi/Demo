@@ -80,27 +80,24 @@ async function createMessage() {
         document.getElementById("result").innerText =
             "Errore POST: " + error.message;
     }
-
-async function deleteMessages() { 
-    try { 
-        const response = await fetch("/api/messages", { 
-            method: "DELETE" 
-        }); 
-
-    if (!response.ok) {
-         throw new Error("Errore HTTP: " + response.status); 
-     } 
-
-     document.getElementById("result").innerText = 
-     "Tutti i messaggi sono stati cancellati."; 
-
-    } catch (error) {
-         document.getElementById("result").innerText = 
-         "Errore DELETE: " + error.message; 
-
-    }
-
 }
+
+async function deleteMessages() {
+    try {
+        const response = await fetch("/api/messages", {
+            method: "DELETE"
+        });
+
+        if (!response.ok) {
+            throw new Error("Errore HTTP: " + response.status);
+        }
+
+        document.getElementById("result").innerText =
+            "Tutti i messaggi sono stati cancellati.";
+    } catch (error) {
+        document.getElementById("result").innerText =
+            "Errore DELETE: " + error.message;
+    }
 }
 </script>
 

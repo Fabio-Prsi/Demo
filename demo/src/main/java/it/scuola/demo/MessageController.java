@@ -27,10 +27,20 @@ public class MessageController {
         return repo.save(msg);
     }
 
-    @DeleteMapping
-    public void deleteAll() {
-    repo.deleteAll();
+    // POST: scrivo un messaggio dal form HTML
+    @PostMapping("/post")
+    public Message createFromForm(@RequestParam String text) {
+        return repo.save(new Message(text));
     }
 
-    
+    // GET: leggo tutti i messaggi dal DB dal form HTML
+    @GetMapping("/get")
+    public List<Message> getMessages() {
+        return repo.findAll();
+    }
+
+    @DeleteMapping
+    public void deleteAll() {
+        repo.deleteAll();
+    }
 }
