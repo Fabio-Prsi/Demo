@@ -29,7 +29,7 @@ public class MessageController {
     }
 
     @DeleteMapping
-public void deleteAll() {
+    public void deleteAll() {
     repo.deleteAll();
 }
 
