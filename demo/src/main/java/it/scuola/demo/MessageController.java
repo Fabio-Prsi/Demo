@@ -1,9 +1,7 @@
 package it.scuola.demo;
 
-import java.util.HashMap;
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,7 +29,7 @@ public class MessageController {
     @DeleteMapping
     public void deleteAll() {
     repo.deleteAll();
-}
+    }
 
     
 }
