@@ -6,7 +6,24 @@
 </head>
 <body>
 
-<h1>Test API Spring + H2</h1>
+<h1>Test API Spring + H2  con HTML puro (vecchio web)</h1>
+
+<form action="/api/messages/post" method="post">
+    <input type="text" name="text" placeholder="Scrivi un messaggio">
+    <button type="submit">Submit</button>
+</form>
+
+<br>
+
+<form action="/api/messages/get" method="get">
+    <button type="submit">Carica messaggi</button>
+</form>
+
+<iframe src="/api/messages/get" width="600" height="300"></iframe>
+
+
+
+<h1>Test API Spring + H2  con HTML  + javascript (web moderno)</h1>
 
 <h2>Inserisci un messaggio</h2>
 <input type="text" id="text" placeholder="Scrivi un messaggio">
@@ -15,15 +32,13 @@
 <h2>Leggi tutti i messaggi</h2>
 <button onclick="getMessages()">Esegui GET</button>
 
-<h2>cancella tutti i messaggi</h2>
-<button onclick="deleteMessages()">Esegui DELETE</button>
-
 <h2>Risultato</h2>
 <pre id="result"></pre>
 
 <script>
 async function getMessages() {
-    try {
+    try 
+    {
         const response = await fetch("/api/messages");
 
         if (!response.ok) {
@@ -34,7 +49,8 @@ async function getMessages() {
         document.getElementById("result").innerText =
             JSON.stringify(data, null, 2);
 
-    } catch (error) {
+    } 
+    catch (error) {
         document.getElementById("result").innerText =
             "Errore GET: " + error.message;
     }
@@ -64,24 +80,27 @@ async function createMessage() {
         document.getElementById("result").innerText =
             "Errore POST: " + error.message;
     }
-}
-async function deleteMessages() {
-    try {
-        const response = await fetch("/api/messages", {
-            method: "DELETE"
-        });
 
-        if (!response.ok) {
-            throw new Error("Errore HTTP: " + response.status);
-        }
+async function deleteMessages() { 
+    try { 
+        const response = await fetch("/api/messages", { 
+            method: "DELETE" 
+        }); 
 
-        document.getElementById("result").innerText =
-            "Tutti i messaggi sono stati cancellati.";
+    if (!response.ok) {
+         throw new Error("Errore HTTP: " + response.status); 
+     } 
+
+     document.getElementById("result").innerText = 
+     "Tutti i messaggi sono stati cancellati."; 
 
     } catch (error) {
-        document.getElementById("result").innerText =
-            "Errore DELETE: " + error.message;
+         document.getElementById("result").innerText = 
+         "Errore DELETE: " + error.message; 
+
     }
+
+}
 }
 </script>
 
